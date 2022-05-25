@@ -1,7 +1,5 @@
 const jwt = require('jsonwebtoken');
-
 //Model
-
 const { User } = require('../models/user.model');
 
 const { catchAsync } = require('../utils/catchAsync');
@@ -65,4 +63,9 @@ const protectEmployee = catchAsync(async (req, res, next) => {
     return next(new AppError('Access denied', 403))
 })
 
-module.exports = { userExists, protectToken, protectAccountOwner, protectEmployee };
+module.exports = {
+  userExists,
+  protectToken,
+  protectAccountOwner,
+  protectEmployee
+};
