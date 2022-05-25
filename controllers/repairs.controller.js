@@ -19,9 +19,10 @@ const getAllRepairs = catchAsync(async (req, res, next) => {
 });
 
 const createDate = catchAsync(async (req, res, next) => {
-  const { userId, date, computerNumber, comment } = req.body;
+  const { date, computerNumber, comment } = req.body;
+  const { sessionUser } = req
   const newDate = await Repair.create({
-    userId,
+    userId: sessionUser.id,
     date,
     computerNumber,
     comment,

@@ -33,11 +33,6 @@ const protectToken = catchAsync(async (req, res, next) => {
   req.sessionRepair = repair;
   next();
 });
-const protectEmployee = catchAsync(async (req, res, next) => {
-  if (req.sessionRepair.role !== 'employee')
-    return next(new AppError('Access not granted', 403));
-  next();
-});
 
 const repairPending = catchAsync(async (req, res, next) => {
   const { id } = req.params;
@@ -50,4 +45,4 @@ const repairPending = catchAsync(async (req, res, next) => {
   next();
 });
 
-module.exports = { repairPending, protectToken, protectEmployee };
+module.exports = { repairPending, protectToken };
