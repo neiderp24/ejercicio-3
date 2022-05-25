@@ -6,7 +6,6 @@ const morgan = require('morgan')
 
 const { globalErrorHandler } = require('./controllers/errors.controllers');
 
-const { reset } = require('nodemon');
 const { repairsRouter } = require('./routes/repairs.routes');
 
 const { usersRouter } = require('./routes/users.routes');
